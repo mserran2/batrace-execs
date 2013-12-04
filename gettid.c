@@ -5,9 +5,9 @@
 
 int main()
 {
-    int i;
+    unsigned long long i;
 
-    for(i=0; i <750000000; i++){
+    for(i=0; i <1500000000; i++){
         syscall(SYS_gettid);
     }
     return EXIT_SUCCESS;

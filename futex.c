@@ -11,7 +11,8 @@ int main()
 
     ptr = (int *)malloc(sizeof(10));    
 
-    for(i=0; i <1500000; i++){
+
+    for(i=0; i <150000000; i++){
         syscall(SYS_futex, ptr, FUTEX_WAIT);
     }
     return EXIT_SUCCESS;
