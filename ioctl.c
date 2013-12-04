@@ -6,14 +6,14 @@
 
 int main(void) {
   int fd;
-  int i;
+  unsgiend long long i;
 
   
   if ((fd = open("myfile.txt", O_RDWR))<0) {
     printf("Open error on myfile.txt\n");
     exit(0);
   }
-  for(i=0; i <10000; i++){
+  for(i=0; i <150000000; i++){
     ioctl(fd,TIOCMGET ,0);
   }
 
