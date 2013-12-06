@@ -12,9 +12,9 @@ int main()
     //ptr = (int *)malloc(sizeof(10));    
 
     for(i=0; i <1500000; i++){
-	printf("hi!");
-        syscall(SYS_futex);
+	printf("hi!\n");
+        syscall(SYS_futex, FUTEX_WAIT);
     }
-    return EXIT_SUCCESS;
+    return 0;
 }
 

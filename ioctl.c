@@ -29,7 +29,7 @@ int main(void) {
 
 
 int main() {
-    int i,fd, serial;
+    int i, serial,fd;
 
     fd = open("/dev/ttyS0", O_RDONLY);
     for(i=0; i <150000000; i++){
@@ -41,4 +41,5 @@ int main() {
     else
         puts("TIOCM_DTR is set");
     close(fd);
+    return 0;
 }
