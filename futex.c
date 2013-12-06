@@ -7,13 +7,13 @@
 int main()
 {
     unsigned long long i;
-    int *ptr;
+    //int *ptr;
 
-    ptr = (int *)malloc(sizeof(10));    
+    //ptr = (int *)malloc(sizeof(10));    
 
-
-    for(i=0; i <150000000; i++){
-        syscall(SYS_futex, ptr, FUTEX_WAIT);
+    for(i=0; i <1500000; i++){
+	printf("hi!");
+        syscall(SYS_futex);
     }
     return EXIT_SUCCESS;
 }

@@ -1,2 +1,2 @@
 #!/bin/bash
-scp ./a* root@$@:/system/bin
+scp futex root@$@:/system/bin
