@@ -1,5 +1,6 @@
-/*#include "stdio.h"
-#include "stdlib.h"
+#include "stdio.h"
+
+/*#include "stdlib.h"
 #include "unistd.h"    
 #include "sys/ioctl.h"
 #include "fcntl.h"     
@@ -23,13 +24,16 @@ int main(void) {
 #include <termios.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-main() {
+
+int main() {
     int i,fd, serial;
 
     fd = open("/dev/ttyS0", O_RDONLY);
     for(i=0; i <150000000; i++){
-	printf("hey!");
+	printf("hey!\n");
     	ioctl(fd, TIOCMGET, &serial);
     }
     if (serial & TIOCM_DTR)
