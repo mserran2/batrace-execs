@@ -1,6 +1,6 @@
 /* cacheflush.c */
-
-#include <asm/cachect1.h>
+#include <unistd.h>
+#include <sys/syscall.h>
 
 int main() {
   // from strace.. can't find man page w/ 5 args
@@ -8,7 +8,7 @@ int main() {
   char testArray [100];  
 
   for(i=0; i<5000000000; i++) {
-    cacheflush(&testArray, 100, ICACHE);
+    sys_cacheflush(&testArray, &testArray+100, 0);//ICACHE);
   }
   return 0;
 }

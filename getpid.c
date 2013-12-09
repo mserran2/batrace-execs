@@ -1,14 +1,16 @@
 /* getpid.c */
+#include <sys/syscall.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 int main () 
 {
-  //vars
-  int i;
+  unsigned long long i;
 
-  for(i=0; i<69516129; i++) {
-    getpid();
+  for(i=0; i<169516129; i++) {
+    syscall(SYS_getpid);
   }
-  return 0;
+  return EXIT_SUCCESS;
 }

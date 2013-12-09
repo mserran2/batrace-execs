@@ -1,2 +1,2 @@
 #!/bin/bash
-scp futex root@$@:/system/bin
+scp a_getclocktime root@192.168.1.139:/system/bin

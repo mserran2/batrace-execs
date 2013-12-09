@@ -1,20 +1,25 @@
+/* 
+ * futex.c
+ */
+
 #include <linux/futex.h>
 #include <sys/syscall.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-int main()
-{
-    unsigned long long i;
-    //int *ptr;
+int sys_futex(void *addr1, int op, int val1, struct timespec *timeout, void *addr2, int val3) {
+  return syscall(SYS_futex, addr1, op, val1, timeout, addr2, val3);
+}
 
-    //ptr = (int *)malloc(sizeof(10));    
+int main() {
+  int futexVar;
+  unsigned long long i;
 
-    for(i=0; i <1500000; i++){
-	printf("hi!\n");
-        syscall(SYS_futex, FUTEX_WAIT);
-    }
-    return 0;
+  //150,000,000 times
+  for(i=0; i <150000000; i++){
+    sys_futex(&futexVar, FUTEX_WAKE_PRIVATE, 1, NULL, NULL, 0);
+  }
+  return EXIT_SUCCESS;
 }
 

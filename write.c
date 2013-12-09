@@ -1,18 +1,19 @@
-/* write.c */
-
-#include <sys/types.h>
-#include <fcntl.h>
-
+#include <stdio.h> 
+#include <stdlib.h>
+/* For exit() function */ 
 int main() {
-  //vars
-  int i;
+  FILE *fptr; 
+  unsigned long long i;
 
-  int out_fd = open("hello.txt", O_CREAT);
-  char x[10]="HelloWorld";
-
-  for(i=0; i<10000; i++) {
-    write(out_fd, x, sizeof(x));
+  fptr=fopen("hello.txt","w"); 
+  if(fptr==NULL){ 
+    printf("Error!"); 
+    exit(1); 
   }
-  close(out_fd);
-  return 0;
+  // 100,000,000
+  for(i=0;i<100000000;i++) { 
+    fprintf(fptr,"%s","this is a test write to test the system call write"); 
+  } 
+  fclose(fptr); 
+  return 0; 
 }
