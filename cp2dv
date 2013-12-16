@@ -1,2 +1,4 @@
 #!/bin/bash
-scp futex root@$@:/system/bin
+
+scp gettid root@130.58.175.176:/system/bin
+
