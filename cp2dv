@@ -1,2 +1,2 @@
 #!/bin/bash
-scp a_getclocktime root@192.168.1.139:/system/bin
+scp cacheflush root@130.58.194.4:/system/bin
