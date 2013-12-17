@@ -1,2 +1,3 @@
 #!/bin/bash
-scp ./a* root@$@:/system/bin
+scp gettid root@$@:/system/bin
+
