@@ -81,13 +81,13 @@ create_and_bind (char *port)
 }
 
 int
-main (int argc, char *argv[])
+main ()
 {
   int sfd, s;
   int efd;
   struct epoll_event event;
   struct epoll_event *events;
-
+  /*
   if (argc != 2)
     {
       fprintf (stderr, "Usage: %s [port]\n", argv[0]);
@@ -108,7 +108,7 @@ main (int argc, char *argv[])
       perror ("listen");
       abort ();
     }
-
+  */
   efd = epoll_create1 (0);
   if (efd == -1)
     {
@@ -118,12 +118,12 @@ main (int argc, char *argv[])
 
   event.data.fd = sfd;
   event.events = EPOLLIN | EPOLLET;
-  s = epoll_ctl (efd, EPOLL_CTL_ADD, sfd, &event);
-  if (s == -1)
-    {
-      perror ("epoll_ctl");
-      abort ();
-    }
+  //s = epoll_ctl (efd, EPOLL_CTL_ADD, sfd, &event);
+  //if (s == -1)
+  //  {
+  //    perror ("epoll_ctl");
+  //    abort ();
+  //  }
 
   /* Buffer where events are returned */
   events = calloc (MAXEVENTS, sizeof event);
