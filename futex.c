@@ -17,7 +17,7 @@ int main() {
   unsigned long long i;
 
   //150,000,000 times
-  for(i=0; i <150000000; i++){
+  for(i=0; i <15000000; i++){
     sys_futex(&futexVar, FUTEX_WAKE_PRIVATE, 1, NULL, NULL, 0);
   }
   return EXIT_SUCCESS;
