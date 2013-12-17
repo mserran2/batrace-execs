@@ -1,2 +1,2 @@
 #!/bin/bash
-scp cacheflush root@130.58.194.4:/system/bin
+scp ./a* root@$@:/system/bin
